@@ -33,7 +33,7 @@ This will install:
 
 ### Windows terminal
 
-Open the settings and paste the following in the `defauls` section:
+Open the settings and paste the following in the `defaults` section:
 
 ```json
 {
