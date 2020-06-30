@@ -59,6 +59,22 @@ Since no chocolatey package is available as of yet, install Ubuntu 20.04 from th
 
 ## Settings
 
+### Windows services
+
+Make sure the ssh-agent service always starts automatically by running the following command in an **admin** command prompt
+
+```powershell
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+Get-Service ssh-agent | Start-Service
+```
+
+### Generate SSH key and add it to ssh-agent
+
+```powershell
+ssh-keygen
+ssh-add .\.ssh\id_rsa
+```
+
 ### Windows terminal
 
 Open the settings and paste the following in the `defaults` section:
