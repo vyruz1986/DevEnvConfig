@@ -2,6 +2,28 @@
 
 A repository for hosting various config files, installer-commands, etc for setting up my development environment
 
+## Windows config
+
+Make sure you have Windows 10 2004 or higher installed.
+Enable windows subsystem for Linux (WSL):
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
+Enable the virtual machine platform:
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+```
+
+Reboot the system
+Set WSL2 as the default version
+
+```powershell
+wsl --set-default-version 2
+```
+
 ## Installers
 
 Start by installing chocolatey: run the following command in admin PowerShell:
@@ -13,7 +35,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Then install all the tools (also in admin PowerShell):
 
 ```powershell
-cinst -y git vscode gitextensions microsoft-windows-terminal doublecmd dotnetcore-sdk microsoft-edge cascadiacodepl powershell-core p4merge
+cinst -y git vscode gitextensions microsoft-windows-terminal doublecmd dotnetcore-sdk microsoft-edge cascadiacodepl powershell-core p4merge docker-desktop
 ```
 
 This will install:
@@ -28,6 +50,12 @@ This will install:
 - Cascadia Code PL font
 - PowerShell Core
 - P4Merge (Perforce visual merge tool)
+- Docker Desktop
+
+### Ubuntu for windows
+
+Since no chocolatey package is available as of yet, install Ubuntu 20.04 from the windows store:
+<https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71#activetab=pivot:overviewtab>
 
 ## Settings
 
@@ -126,6 +154,7 @@ code --install-extension ms-vscode.powershell
 code --install-extension ms-vscode.vscode-typescript-tslint-plugin
 code --install-extension msjsdiag.debugger-for-chrome
 code --install-extension platformio.platformio-ide
+code --install-extension esbenp.prettier-vscode
 ```
 
 Disable the following extensions globally, they only need to be enabled in their corresponding workspaces:
