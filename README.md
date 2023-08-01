@@ -4,38 +4,14 @@ A repository for hosting various config files, installer-commands, etc for setti
 
 ## Windows config
 
-Make sure you have Windows 10 2004 or higher installed.
-Enable windows subsystem for Linux (WSL):
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-```
-
-Enable the virtual machine platform:
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-```
-
-Reboot the system
-Set WSL2 as the default version
-
-```powershell
-wsl --set-default-version 2
-```
+Make sure you have Windows 11 22H2 or higher installed.
 
 ## Installers
 
-Start by installing chocolatey: run the following command in admin PowerShell:
+Install all the tools:
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
-
-Then install all the tools (also in admin PowerShell):
-
-```powershell
-cinst -y git vscode gitextensions microsoft-windows-terminal doublecmd dotnetcore-sdk microsoft-edge cascadiacodepl powershell-core p4merge docker-desktop
+winget install --id=Microsoft.VisualStudioCode -e  ; winget install --id=Git.Git -e  ; winget install --id=GitExtensionsTeam.GitExtensions -e  ; winget install --id=alexx2000.DoubleCommander -e  ; winget install --id=Microsoft.dotnet -e  ; winget install --id=Perforce.P4Merge -e  ; winget install --id=WinMerge.WinMerge -e  ; winget install --id=Docker.DockerDesktop -e  ; winget install --id=7zip.7zip -e  ; winget install --id=Canonical.Ubuntu.2204 -e
 ```
 
 This will install:
@@ -43,19 +19,16 @@ This will install:
 - Git
 - Visual Studio Code
 - GitExtensions
-- Windows Terminal
 - Double Commander
 - .NET Core SDK
-- MS Edge (Chromium)
-- Cascadia Code PL font
-- PowerShell Core
 - P4Merge (Perforce visual merge tool)
 - Docker Desktop
+- 7Zip
+- Ubuntu 22.04 LTS
+  
+Install CaskaydiaCove Nerd Font font:
 
-### Ubuntu for windows
-
-Since no chocolatey package is available as of yet, install Ubuntu 20.04 from the windows store:
-<https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71#activetab=pivot:overviewtab>
+Download CaskaydiaCove Nerd Font from https://www.nerdfonts.com/font-downloads
 
 ## Settings
 
